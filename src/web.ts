@@ -5,6 +5,10 @@ import type { CapacitorPassToWalletPlugin } from './definitions';
 export class CapacitorPassToWalletWeb
   extends WebPlugin
   implements CapacitorPassToWalletPlugin {
+  addToWallet(options: { base64: string }): Promise<{ base64: string; }> {
+    console.log(options.base64, 'Method not implemente on web.');
+    throw new Error('Method not implemente on web.');
+  }
   async echo(options: { value: string }): Promise<{ value: string }> {
     console.log('ECHO', options);
     return options;
