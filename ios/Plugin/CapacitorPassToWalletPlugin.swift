@@ -30,9 +30,10 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
                     print("Pass already added");
                 } else {
                    
+                    
                     if let vc = PKAddPassesViewController(pass: pass) {
                         print("added");
-                        vc.present(vc, animated: true, completion: nil)
+                        self.bridge?.viewController?.present(vc, animated: true, completion: nil);
                         call.resolve([
                             "base64": implementation.echo(data)
                         ])
