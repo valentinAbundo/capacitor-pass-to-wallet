@@ -19,52 +19,25 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
 
     @objc func addToWallet(_ call: CAPPluginCall) {
         let data = call.getString("base64") ?? ""
-        /* call.resolve([
-            "value": implementation.echo(uri)
-        ]) */
-        print("-----------DATA-----------------");
-        print(data);
+       
         if let dataPass = Data(base64Encoded: data, options: .ignoreUnknownCharacters){
             if let pass = try? PKPass(data: dataPass){
                 if(PKPassLibrary().containsPass(pass)) {
-                    print("Pass already added");
+                    call.reject("Pass already added");
                 } else {
-                   
-                    
                     if let vc = PKAddPassesViewController(pass: pass) {
-                        print("added");
-                        self.bridge?.viewController?.present(vc, animated: true, completion: nil);
                         call.resolve([
-                            "base64": implementation.echo(data)
-                        ])
+                            "value": implementation.echo("SUCCESS")
+                        ]);
+                        self.bridge?.viewController?.present(vc, animated: true, completion: nil);
                     }
                 }
+            } else {
+                call.reject("PKPASS file has invalid data");
             }
         } else {
-            print("ERROR", data);
-            call.reject("ERROR");
+            call.reject("Error with base64 data");
         }
         
-        /* if let url = Bundle.main.url(forResource: uri, withExtension: "pkpass") {
-            print(url, "--------URL---------------");
-            if let data = try? Data(contentsOf: url){
-                if let pass = try? PKPass(data: data){
-                    if(PKPassLibrary().containsPass(pass)) {
-                        print("Pass already added");
-                    } else {
-                        if let vc = PKAddPassesViewController(pass: pass) {
-                            print("added");
-                            vc.self.present(vc, animated: true, completion: nil)
-                            call.resolve([
-                                "uri": implementation.echo(uri)
-                            ])
-                        }
-                    }
-                }
-            }
-        } else {
-            print("ERROR", uri);
-            call.reject("ERROR");
-        } */
     }
 }

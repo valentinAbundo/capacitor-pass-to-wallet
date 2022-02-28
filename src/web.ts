@@ -7,7 +7,7 @@ export class CapacitorPassToWalletWeb
   implements CapacitorPassToWalletPlugin {
   addToWallet(options: { base64: string }): Promise<{ base64: string; }> {
     console.log(options.base64, 'Method not implemente on web.');
-    throw new Error('Method not implemente on web.');
+    throw new Error('Method not implemented on web.');
   }
   async echo(options: { value: string }): Promise<{ value: string }> {
     console.log('ECHO', options);
