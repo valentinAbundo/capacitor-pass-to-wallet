@@ -23,7 +23,11 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
         if let dataPass = Data(base64Encoded: data, options: .ignoreUnknownCharacters){
             if let pass = try? PKPass(data: dataPass){
                 if(PKPassLibrary().containsPass(pass)) {
-                    call.reject("Pass already added");
+                    let error =
+                    """
+                    {"code": 100,"message": "Pass already added"}
+                    """
+                    call.reject(error);
                 } else {
                     if let vc = PKAddPassesViewController(pass: pass) {
                         call.resolve([
@@ -33,10 +37,20 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
                     }
                 }
             } else {
-                call.reject("PKPASS file has invalid data");
+                let error =
+                """
+                {"code": 101,"message": "PKPASS file has invalid data"}
+                """
+        
+                call.reject(error);
             }
         } else {
-            call.reject("Error with base64 data");
+            let error =
+            """
+            {"code": 102,"message": "Error with base64 data"}
+            """
+            call.reject(error);
+            
         }
         
     }
