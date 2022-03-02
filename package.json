@@ -1,6 +1,6 @@
 {
   "name": "@nitnelav97/capacitor-pass-to-wallet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allow to add .pkpass file to Apple Wallet",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -25,7 +25,11 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "wallet",
+    "pkpass",
+    "passbook",
+    "ionic"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",

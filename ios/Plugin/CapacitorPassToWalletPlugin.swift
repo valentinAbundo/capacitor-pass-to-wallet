@@ -10,12 +10,6 @@ import PassKit
 public class CapacitorPassToWalletPlugin: CAPPlugin {
     private let implementation = CapacitorPassToWallet()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
-    }
 
     @objc func addToWallet(_ call: CAPPluginCall) {
         let data = call.getString("base64") ?? ""
