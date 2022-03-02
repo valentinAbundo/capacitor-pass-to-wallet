@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+
 * [`addToWallet(...)`](#addtowallet)
 
 </docgen-index>
@@ -21,25 +21,18 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
-
-```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
-```
-
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
-
---------------------
-
 
 ### addToWallet(...)
 
 ```typescript
-addToWallet(options: { base64: string; }) => Promise<{ base64: string; }>
+  import { CapacitorPassToWallet } from 'capacitor-pass-to-wallet';
+  
+  try {
+      await CapacitorPassToWallet.addToWallet({base64});
+  } catch (error) {
+      console.log(error);
+  }
+
 ```
 
 | Param         | Type                             |
