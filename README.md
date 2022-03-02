@@ -13,7 +13,6 @@ npx cap sync
 
 <docgen-index>
 
-
 * [`addToWallet(...)`](#addtowallet)
 
 </docgen-index>
@@ -21,22 +20,10 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-
 ### addToWallet(...)
 
 ```typescript
-  import { CapacitorPassToWallet } from 'capacitor-pass-to-wallet';
-  
-  
-  async addToWallet(base64: string){
-    try {
-        await CapacitorPassToWallet.addToWallet({base64});
-    } catch (error) {
-        console.log(error);
-    }
-  }
-  
-
+addToWallet(options: { base64: string; }) => Promise<{ base64: string; }>
 ```
 
 | Param         | Type                             |

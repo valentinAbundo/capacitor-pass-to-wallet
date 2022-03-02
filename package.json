@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-pass-to-wallet",
+  "name": "@nitnelav97/capacitor-pass-to-wallet",
   "version": "0.0.1",
   "description": "Allow to add .pkpass file to Apple Wallet",
   "main": "dist/plugin.cjs.js",
@@ -75,5 +75,9 @@
     "android": {
       "src": "android"
     }
+  },
+  "homepage": "https://github.com/valentinAbundo/capacitor-pass-to-wallet#readme",
+  "directories": {
+    "example": "example"
   }
 }
