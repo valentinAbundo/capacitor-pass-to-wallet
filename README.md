@@ -27,11 +27,15 @@ npx cap sync
 ```typescript
   import { CapacitorPassToWallet } from 'capacitor-pass-to-wallet';
   
-  try {
-      await CapacitorPassToWallet.addToWallet({base64});
-  } catch (error) {
-      console.log(error);
+  
+  async addToWallet(base64: string){
+    try {
+        await CapacitorPassToWallet.addToWallet({base64});
+    } catch (error) {
+        console.log(error);
+    }
   }
+  
 
 ```
 
