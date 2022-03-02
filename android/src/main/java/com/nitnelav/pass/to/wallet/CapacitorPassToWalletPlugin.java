@@ -18,7 +18,7 @@ public class CapacitorPassToWalletPlugin extends Plugin {
         String value = call.getString("base64");
 
         JSObject ret = new JSObject();
-        ret.put("base64", implementation.echo("Method not implemented on android."));
+        ret.put("base64", implementation.addToWallet("Method not implemented on android."));
         call.resolve(ret);
     }
 }
