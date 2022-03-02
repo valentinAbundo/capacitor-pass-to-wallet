@@ -1,5 +1,6 @@
 package com.nitnelav.pass.to.wallet;
 
+import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;

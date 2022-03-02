@@ -8,4 +8,10 @@ public class CapacitorPassToWallet {
         Log.i("Echo", value);
         return value;
     }
+
+    public String addToWallet(String value) {
+        Log.i("Not implememted on Android", value);
+        return value;
+    }
+    
 }
