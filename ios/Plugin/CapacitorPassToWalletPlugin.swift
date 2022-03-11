@@ -48,4 +48,38 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
         }
         
     }
+
+    @objc func addMultipleToWallet(_ call: CAPPluginCall) {
+        let data = call.getArray("base64") ?? [];
+        
+        var pkPasses = [PKPass]()
+
+        for base64 in data {
+            if let dataPass = Data(base64Encoded: base64 as! String, options: .ignoreUnknownCharacters){
+                if let pass = try? PKPass(data: dataPass){
+                    if(!PKPassLibrary().containsPass(pass)) {
+                        pkPasses.append(pass)
+                    }
+                }
+            }
+        }
+        
+        if pkPasses.count > 0 {
+            if let vc = PKAddPassesViewController(passes: pkPasses) {
+                        call.resolve([
+                            "value": implementation.echo("SUCCESS")
+                        ]);
+                        self.bridge?.viewController?.present(vc, animated: true, completion: nil);
+                    }
+        } else {
+            let error =
+            """
+            {"code": 103,"message": "PKPASSES file has invalid data"}
+            """
+            call.reject(error);
+        }
+       
+        
+        
+    }
 }

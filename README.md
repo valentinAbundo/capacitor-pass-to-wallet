@@ -14,35 +14,39 @@ npx cap sync
 <docgen-index>
 
 * [`addToWallet(...)`](#addtowallet)
+* [`addMultipleToWallet(...)`](#addmultipletowallet)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-
 ### addToWallet(...)
 
 ```typescript
-  import { CapacitorPassToWallet } from 'capacitor-pass-to-wallet';
-  
-  
-  async addToWallet(base64: string){
-    try {
-        await CapacitorPassToWallet.addToWallet({base64});
-    } catch (error) {
-        console.log(error);
-    }
-  }
-  
-
+addToWallet(options: { base64: string; }) => Promise<{ message: string; }>
 ```
 
 | Param         | Type                             |
 | ------------- | -------------------------------- |
 | **`options`** | <code>{ base64: string; }</code> |
 
-**Returns:** <code>Promise&lt;{ base64: string; }&gt;</code>
+**Returns:** <code>Promise&lt;{ message: string; }&gt;</code>
+
+--------------------
+
+
+### addMultipleToWallet(...)
+
+```typescript
+addMultipleToWallet(options: { base64: string[]; }) => Promise<{ message: string; }>
+```
+
+| Param         | Type                               |
+| ------------- | ---------------------------------- |
+| **`options`** | <code>{ base64: string[]; }</code> |
+
+**Returns:** <code>Promise&lt;{ message: string; }&gt;</code>
 
 --------------------
 

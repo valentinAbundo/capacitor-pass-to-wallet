@@ -1,7 +1,7 @@
 {
-  "name": "@nitnelav97/capacitor-pass-to-wallet",
-  "version": "0.0.3",
-  "description": "Allow to add .pkpass file to Apple Wallet",
+  "name": "capacitor-pass-to-wallet",
+  "version": "0.0.5",
+  "description": "Allow to add .pkpass files to Apple Wallet",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -29,7 +29,8 @@
     "wallet",
     "pkpass",
     "passbook",
-    "ionic"
+    "ionic",
+    "apple"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
