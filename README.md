@@ -2,6 +2,8 @@
 
 Allow to add .pkpass file to Apple Wallet
 
+Buy me a coffee if you think this plugin was very useful for your project
+https://paypal.me/nitnelavah?country.x=MX&locale.x=es_XC
 ## Install
 
 ```bash
