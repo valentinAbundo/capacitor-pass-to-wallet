@@ -5,10 +5,17 @@ Allow to add .pkpass file to Apple Wallet
 Buy me a coffee if you think this plugin was very useful for your project
 https://paypal.me/nitnelavah?country.x=MX&locale.x=es_XC
 
-----------> EXAMPLE <----------
+## Example
 https://youtu.be/FUt2J385yCQ
 https://github.com/NitnelavAH/IonicAdd2Wallet
-----------> EXAMPLE <----------
+
+## Compatibility
+
+| Capacitor Version  | Plugin Version |
+| ------------- | ------------- |
+| 4.x  | 1.x  |
+| 5.x  | 2.x |
+
 ## Install
 
 ```bash
