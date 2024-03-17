@@ -53,12 +53,15 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
         let data = call.getArray("base64") ?? [];
         
         var pkPasses = [PKPass]()
+        var duplicatedAmount = 0
 
         for base64 in data {
             if let dataPass = Data(base64Encoded: base64 as! String, options: .ignoreUnknownCharacters){
                 if let pass = try? PKPass(data: dataPass){
                     if(!PKPassLibrary().containsPass(pass)) {
                         pkPasses.append(pass)
+                    } else {
+                        duplicatedAmount = duplicatedAmount + 1
                     }
                 }
             }
@@ -72,9 +75,14 @@ public class CapacitorPassToWalletPlugin: CAPPlugin {
                         self.bridge?.viewController?.present(vc, animated: true, completion: nil);
                     }
         } else {
-            let error =
+            let error = duplicatedAmount == 0
+            ?
             """
             {"code": 103,"message": "PKPASSES file has invalid data"}
+            """ 
+            : 
+            """
+            {"code": 100,"message": "Passes already added"}
             """
             call.reject(error);
         }
